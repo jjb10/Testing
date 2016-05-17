@@ -1,10 +1,19 @@
+
+import sys
 import os.path
 
-if os.path.isfile('C:\Users\Nafora\PycharmProjects\stockfighter\joe.txt'):
-    with open('C:\Users\Nafora\PycharmProjects\stockfighter\joe.txt') as f:
-        data = f.readlines()
+
+try:
+    sys.argv[1]
+except IndexError:
+    print False
 else:
-    print "no"
+    print True
+    if os.path.isfile(sys.argv[1]):
+        with open(sys.argv[1]) as f:
+            data = f.readlines()
+    else:
+        print "no"
 
 
 print data

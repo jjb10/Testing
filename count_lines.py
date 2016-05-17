@@ -7,9 +7,9 @@ try:
 except IndexError:
       print False
 else:
-      print True
+      #print True
       if os.path.isfile(sys.argv[1]):
             with open(sys.argv[1]) as f:
                   print len(f.readlines())
       else:
-            print "no"
+            print "the file does not exist"

@@ -1,23 +1,30 @@
 import os.path
+import sys
 
-if os.path.isfile('C:\Users\Nafora\PycharmProjects\stockfighter\gaby.txt'):
-    with open('C:\Users\Nafora\PycharmProjects\stockfighter\gaby.txt') as f:
-        data = f.read()
+try:
+    sys.argv[1]
+except IndexError:
+    print False
 else:
-    print "no"
+
+    if os.path.isfile(sys.argv[1]):
+        with open(sys.argv[1]) as f:
+            data = f.read()
+    else:
+        print "the file does not exist"
 
 
-print data
+# print data
 
 
-for i in range(0,len(data)):
-    p=data.split()
-a=len(p)
+
+splitteddata=data.split()
+length_of_spillteddata=len(splitteddata)
 g=[]
-for j in range(0,len(p)):
-    if '%' in p[j] or '$' in p[j]:
-        g.append(p[j])
+for j in range(0,length_of_spillteddata):
+    if '%' in splitteddata[j] or '$' in splitteddata[j]:
+        g.append(splitteddata[j])
 
-b=len(g)
-print a-b
+length_of_g=len(g)
+print length_of_spillteddata-length_of_g
 
